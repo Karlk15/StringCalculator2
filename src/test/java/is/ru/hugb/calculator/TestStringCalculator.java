@@ -9,29 +9,46 @@ import static jdk.nashorn.internal.runtime.regexp.joni.Config.log;
 public class TestStringCalculator {
 
     @Test
-    public final void TestStringWithTwoIntegersReturnsSum() {
+    public final void TestStringWithTwoIntegersReturnsSum() throws Exception {
         int sum = StringCalculator.add("1,2");
         log.println("Sum: " + sum);
     }
     @Test
-    public final void TestStringWithOneIntegerReturnsSum() {
+    public final void TestStringWithOneIntegerReturnsSum() throws Exception {
         int sum = StringCalculator.add("1");
         log.println("Sum: " + sum);
     }
     @Test
-    public final void TestEmptyStringThenReturnValueIs0() {
+    public final void TestEmptyStringThenReturnValueIs0() throws Exception {
         int sum = StringCalculator.add("");
         log.println(sum);
     }
     @Test
-    public final void TestTenNumbersThenReturnSum() {
+    public final void TestTenNumbersThenReturnSum() throws Exception {
         int sum = StringCalculator.add("1,2,3,4,5,6,7,8,9,10");
         log.println("Sum: "+sum);
     }
     @Test
-    public final void TestStringWithNewLineInString() {
+    public final void TestStringWithNewLineInString() throws Exception {
         int sum = StringCalculator.add("1,2,3,4,5\n6,7,8,9,10");
         log.println("Sum: "+sum);
     }
-
+    @Test
+    public final void TestStringWithOneNegativeNumberInString() {
+        try {
+            int sum = StringCalculator.add("-1,2");
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    @Test
+    public final void TestStringWithMultibleNegativeNumberInString() {
+        try {
+            int sum = StringCalculator.add("2,-4,3,-5");
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

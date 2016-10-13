@@ -1,16 +1,35 @@
 package is.ru.hugb.calculator;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by karlkristjansson on 10/12/16.
  */
+
 public class StringCalculator {
-    public static int add(String numbers) {
-        if(numbers.length()==0)return 0;
+    public static int add(String numbers) throws Exception {
+        if(numbers.length()== 0)return 0;
         int sum = 0;
         String[] numberInArray = numbers.split(",|\n");
+        List<String> listNegNumbers = new ArrayList();
          for (String n : numberInArray) {
-                sum += Integer.parseInt(n);
+             String nNegative = n;
+             if(Integer.parseInt(nNegative) < 0) {
+                listNegNumbers.add(nNegative);
+             }
+
+             else {
+                 sum += Integer.parseInt(n);
+             }
          }
+        if(!listNegNumbers.isEmpty()) {
+            String negativeNumbers = "";
+            for(String numb : listNegNumbers ) {
+                negativeNumbers += numb+",";
+            }
+            throw new Exception("Negatives not allowed: "+ negativeNumbers);
+        }
         return sum;
     }
 }
