@@ -3,6 +3,8 @@ package is.ru.hugb.calculator;
 import java.util.ArrayList;
 import java.util.List;
 
+import static jdk.nashorn.internal.runtime.regexp.joni.Config.log;
+
 /**
  * Created by karlkristjansson on 10/12/16.
  */
@@ -42,6 +44,7 @@ public class StringCalculator {
             }
             throw new Exception("Negatives not allowed: "+ negativeNumbers);
         }
+        log.println("Sum: "+sum);
         return sum;
     }
 }
