@@ -28,5 +28,10 @@ public class TestStringCalculator {
         int sum = StringCalculator.add("1,2,3,4,5,6,7,8,9,10");
         log.println("Sum: "+sum);
     }
+    @Test
+    public final void TestStringWithNewLineInString() {
+        int sum = StringCalculator.add("1,2,3,4,5\n6,7,8,9,10");
+        log.println("Sum: "+sum);
+    }
 
 }
