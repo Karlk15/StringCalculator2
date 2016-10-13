@@ -23,5 +23,10 @@ public class TestStringCalculator {
         int sum = StringCalculator.add("");
         log.println(sum);
     }
+    @Test
+    public final void TestTenNumbersThenReturnSum() {
+        int sum = StringCalculator.add("1,2,3,4,5,6,7,8,9,10");
+        log.println("Sum: "+sum);
+    }
 
 }
