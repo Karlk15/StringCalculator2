@@ -51,4 +51,10 @@ public class TestStringCalculator {
             e.printStackTrace();
         }
     }
+    @Test
+    public final void TestIfNumberInStringOver1000IsIgnored() throws Exception
+    {
+        int sum = StringCalculator.add("1001,2");
+        log.println("Sum: "+sum);
+    }
 }

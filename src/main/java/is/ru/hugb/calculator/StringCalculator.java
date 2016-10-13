@@ -18,8 +18,7 @@ public class StringCalculator {
              if(Integer.parseInt(nNegative) < 0) {
                 listNegNumbers.add(nNegative);
              }
-
-             else {
+             else if (Integer.parseInt(n) < 1000) {
                  sum += Integer.parseInt(n);
              }
          }
