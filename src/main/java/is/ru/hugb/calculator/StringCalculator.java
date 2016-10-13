@@ -11,7 +11,18 @@ public class StringCalculator {
     public static int add(String numbers) throws Exception {
         if(numbers.length()== 0)return 0;
         int sum = 0;
-        String[] numberInArray = numbers.split(",|\n");
+        String delimiter = "";
+        if(numbers.startsWith("//"))
+        {
+            int delimiterStart = numbers.indexOf("//")+2;
+            int delimiterend = numbers.indexOf("\n");
+            int numberStart = delimiterend+1;
+            delimiter = numbers.substring(delimiterStart,delimiterend)+"|";
+            numbers = numbers.substring(numberStart);
+        }
+        delimiter += ",|\n";
+
+        String[] numberInArray = numbers.split(delimiter);
         List<String> listNegNumbers = new ArrayList();
          for (String n : numberInArray) {
              String nNegative = n;

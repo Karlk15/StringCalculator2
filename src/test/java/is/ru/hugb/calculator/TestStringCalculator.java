@@ -57,4 +57,16 @@ public class TestStringCalculator {
         int sum = StringCalculator.add("1001,2");
         log.println("Sum: "+sum);
     }
+    @Test
+    public final void TestUndefinedDelimiter() throws Exception
+    {
+        int sum = StringCalculator.add("//;\n1;2");
+        log.println("Sum: "+sum);
+    }
+    @Test
+    public final void TestUndefinedDelimiter2() throws Exception
+    {
+        int sum = StringCalculator.add("//;;\n1;;2");
+        log.println("Sum: "+sum);
+    }
 }
